@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\UserModel;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -12,19 +12,8 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        dd("user index");
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function __construct() {
+        $this->middleware('userMiddleware')->only('store');
     }
 
     /**
@@ -33,21 +22,28 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function index()
     {
-        //
+        return redirect()->route('home.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show()
     {
-        //
+        return redirect()->route('home.index');
     }
+    
+    public function store(Request $request)
+    {
+        $data = [
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ];
+        User::create($data);
+        return redirect()->route('home.index')->with('sucesso','utilizador criado com sucesso!');
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +53,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return redirect()->route('home.index');
     }
 
     /**
@@ -69,7 +65,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('home.index');
     }
 
     /**
@@ -80,6 +76,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return redirect()->route('home.index');
     }
 }

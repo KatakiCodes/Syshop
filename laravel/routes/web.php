@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,9 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('site.index');
-});
+    return view('index');
+})->name('home.index');
+
 Route::resource('user', UserController::class);
+Route::resource('produto', ProdutoController::class);
+Route::get('/cart', [CartController::class,'show'])->name('cart.index');
