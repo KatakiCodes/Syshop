@@ -2,18 +2,24 @@
 @section('title','Home')
 @section('conteudo')
 <div class="container">
-    @if ($message = Session::get('sucesso'))
-    <div class="alert alert-success" role="alert">
-        {{$message}}
-    </div>
-  @else
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-        <div class="alert alert-danger" role="alert">
-            {{$error}}<br/>
-        </div>
-        @endforeach
+    {{-- Create-user result --}}
+@if ($message = Session::get('sucesso'))
+  <div class="alert alert-success" role="alert">
+      {{$message}}
+  </div>
+@else
+    @if ($message = Session::get('logFailed'))
+      <div class="alert alert-danger" role="alert">
+          {{$message}}
+      </div>
     @endif
+@endif
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+      <div class="alert alert-danger" role="alert">
+          {{$error}}<br/>
+      </div>
+    @endforeach
 @endif
 </div>
 

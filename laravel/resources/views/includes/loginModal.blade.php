@@ -8,7 +8,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="#" method="post">
+          <form action="{{ route('login.auth') }}" method="post" enctype="multipart/form-data">
+            @csrf
             <label for="email" class="form-label">Email</label>
             <input class="mb-2 form-control form-control" type="email" name="email" id="email" placeholder="example@gmail.com" required>
             <label for="password" class="form-label">Palavra passe</label>

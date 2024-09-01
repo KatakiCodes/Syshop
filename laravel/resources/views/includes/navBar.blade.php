@@ -18,15 +18,16 @@
           </li>
         </ul>
         @auth
-          <li class="nav-item dropdown">
+            <form action="{{ route('logout') }}" method="post" enctype="multipart/form-data" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {{auth()->user()->name}}
+              <span style="font-weight: 500; color:Gray;">{{auth()->user()->firstName}}</span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Dashboard</a></li>
-              <li><a class="dropdown-item" href="#">Sair</a></li>
+                <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                @csrf
+                <li><button class="dropdown-item" type="submit">Sair</button></li>
+                </form>
             </ul>
-          </li>
         @else
           <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#login-modal" href="#" style="font-weight: 500;">Login</button>
         @endauth

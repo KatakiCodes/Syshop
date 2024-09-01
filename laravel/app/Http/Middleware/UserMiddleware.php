@@ -16,7 +16,7 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $credentials = $request->validate([
+        $data = $request->validate([
             'firstName' =>['required'],
             'lastName' =>['required'],
             'email' =>['required','email'],
