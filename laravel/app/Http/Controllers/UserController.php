@@ -16,21 +16,6 @@ class UserController extends Controller
         $this->middleware('userMiddleware')->only('store');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return redirect()->route('home.index');
-    }
-
-    public function show()
-    {
-        return redirect()->route('home.index');
-    }
     
     public function store(Request $request)
     {
@@ -42,40 +27,5 @@ class UserController extends Controller
         ];
         User::create($data);
         return redirect()->route('home.index')->with('sucesso','utilizador criado com sucesso!');
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        return redirect()->route('home.index');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        return redirect()->route('home.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        return redirect()->route('home.index');
     }
 }

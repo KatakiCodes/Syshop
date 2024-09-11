@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Produto;
 
-class Categorry extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class Categorry extends Model
     protected $fillable = [
         'name'
     ];
-    public function products(){
+    public function produtos(){
         return $this->hasMany(Produto::class, 'id_category', 'id');
     }
 }

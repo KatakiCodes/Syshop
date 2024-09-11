@@ -10,11 +10,24 @@
           <li class="nav-item">
             <a class="nav-link" href="/" style="font-weight: 500;">Home</a>
           </li>
+          @if(!@isset($showCategories))
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('produto.index') }}" style="font-weight: 500;">Produtos</a>
+            </li>
+          @else
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categorias
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @foreach ($categories as $category)
+                  <li><a class="dropdown-item" href="{{ route('category.index',['id'=>$category->id]) }}">{{ $category->name }}</a></li>   
+                @endforeach
+              </ul>
+            </li>   
+          @endif
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('produto.index') }}" style="font-weight: 500;">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('cart.index') }}" style="font-weight: 500;">carrinho <span class="badge bg-secondary">0</span></h6></a>
+            <a class="nav-link" href="{{ route('cart.show') }}" style="font-weight: 500;">carrinho <span class="badge bg-secondary">{{ \Cart::getContent()->count()}}</span></h6></a>
           </li>
         </ul>
         @auth

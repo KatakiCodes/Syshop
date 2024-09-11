@@ -29,7 +29,7 @@
         <h1>Encontre os produtos mais <span class="text-success">autenticos</span> na nossa loja</h1>
         <p class="text-muted mt-4 mb-5">Compre os nossos produtos de qualquer ponto do país e lhe será entregue no melhor tempo posssível, pelos nossos serviços de entrega!</p>
         <div class="actions">
-            <a href="#" class="btn btn-success btn-">Ver nossos produtos</a>
+            <a href="{{ route('produto.index') }}" class="btn btn-success btn-">Ver nossos produtos</a>
             @guest
                 <a href="#" class="btn btn-outline-success" data-bs-toggle="modal"  data-bs-target="#sign-up-modal">Cadastre-se</a>
             @endguest

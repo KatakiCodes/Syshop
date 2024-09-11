@@ -4,7 +4,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title text-success text-center">Criar urilizador</h5>
+          <h5 class="modal-title text-success text-center">Criar utilizador</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -13,7 +13,7 @@
             <label for="firstName" class="form-label">*Primeiro nome</label>
             <input class="mb-2 form-control form-control" type="text" name="firstName" id="firstName" placeholder="primeiro nome..." required>
   
-            <label for="lastName" class="form-label">*segundo nome</label>
+            <label for="lastName" class="form-label">*Segundo nome</label>
             <input class="mb-2 form-control form-control" type="text" name="lastName" id="lastName" placeholder="segundo nome..." required>
   
             <label for="email" class="form-label">*Email</label>
